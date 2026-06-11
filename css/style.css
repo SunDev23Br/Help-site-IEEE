@@ -1,7 +1,7 @@
 /* Variáveis de Cores (Padrão IEEE) */
 :root {
     --primary-color: #00629B; /* Azul IEEE */
-    --secondary-color: #00b5e2; /* Azul Escuro */
+    --secondary-color: #002855; /* Azul Escuro */
     --accent-color: #F2A900; /* Dourado/Amarelo */
     --text-color: #333333;
     --light-bg: #F4F6F9;
@@ -176,12 +176,15 @@ header {
 }
 
 /* Grid Cards (Trilhas Temáticas) */
+/* Container dos cards ajustado para Flexbox */
 .grid-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Isso garante que a linha de baixo fique centralizada */
     gap: 30px;
 }
 
+/* Cards ajustados para terem uma largura flexível, mas controlada */
 .card {
     background: var(--white);
     padding: 30px 20px;
@@ -189,19 +192,22 @@ header {
     text-align: center;
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
     transition: transform 0.3s;
+    
+    /* Novas propriedades Flexbox */
+    flex: 1 1 280px; /* Permite crescer, encolher e ter base de 280px */
+    max-width: 350px; /* Evita que os cards fiquem esticados demais em telas grandes */
 }
 
 .card:hover {
     transform: translateY(-10px);
 }
 
-.card-icon {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 20px;
-    display: inline-block;
-    border-radius: 50%;
+.card:hover {
+    transform: translateY(-10px);
 }
+
+
+
 
 .card h3 {
     color: var(--primary-color);
@@ -285,5 +291,95 @@ header {
     
     .hero-content h1 {
         font-size: 2rem;
+    }
+}
+
+/* =========================================
+   Estilos da Seção de Convidados
+   ========================================= */
+.guest-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    max-width: 950px;
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+}
+
+.guest-card:hover {
+    transform: translateY(-5px);
+}
+
+.guest-image {
+    flex: 1;
+    background-color: var(--secondary-color); /* Fundo escuro caso a imagem demore a carregar */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.guest-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.guest-info {
+    flex: 1.2;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.guest-info h3 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 5px;
+    line-height: 1.2;
+}
+
+.guest-role {
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.guest-bio {
+    margin-bottom: 25px;
+    font-size: 1.05rem;
+    color: var(--text-color);
+    line-height: 1.7;
+    text-align: justify;
+}
+
+.guest-details {
+    background-color: var(--light-bg);
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.guest-details p {
+    margin-bottom: 8px;
+    font-size: 1rem;
+    color: var(--secondary-color);
+}
+
+.guest-details p:last-child {
+    margin-bottom: 0;
+}
+
+/* Responsividade do Card de Convidados para Telas Maiores */
+@media (min-width: 768px) {
+    .guest-card {
+        flex-direction: row; /* Coloca imagem e texto lado a lado no desktop */
     }
 }
