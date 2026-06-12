@@ -1,7 +1,7 @@
 /* Variáveis de Cores (Padrão IEEE) */
 :root {
     --primary-color: #00629B; /* Azul IEEE */
-    --secondary-color: #002855; /* Azul Escuro */
+    --secondary-color: #00b5e2; /* Azul Escuro */
     --accent-color: #F2A900; /* Dourado/Amarelo */
     --text-color: #333333;
     --light-bg: #F4F6F9;
@@ -83,11 +83,12 @@ header {
     border-radius: 3px;
 }
 
-/* Hero Section */
+/* Hero Section atualizada com a imagem do Brasil */
 .hero {
     height: 100vh;
     min-height: 600px;
-    background: url('assets/imagens/hero-bg.jpg') no-repeat center center/cover;
+    /* Aqui está a mágica: definimos a imagem do Brasil como fundo */
+    background: url('../assets/images/cristo.webp') no-repeat center center/cover;
     position: relative;
     display: flex;
     align-items: center;
@@ -249,7 +250,7 @@ header {
 
 /* Footer */
 .footer {
-    background-color: var(--secondary-color);
+    background-color: #00629b;
     color: var(--white);
     text-align: center;
     padding: 40px 0;
@@ -304,7 +305,7 @@ header {
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    max-width: 950px;
+    max-width: 750px;
     margin: 0 auto;
     transition: transform 0.3s ease;
 }
@@ -353,7 +354,7 @@ header {
 }
 
 .guest-bio {
-    margin-bottom: 25px;
+    margin-bottom: 40px;
     font-size: 1.05rem;
     color: var(--text-color);
     line-height: 1.7;
@@ -362,7 +363,7 @@ header {
 
 .guest-details {
     background-color: var(--light-bg);
-    padding: 20px;
+    padding: 10px;
     border-radius: 8px;
     border-left: 4px solid var(--primary-color);
 }
